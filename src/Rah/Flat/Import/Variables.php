@@ -51,13 +51,11 @@ class Rah_Flat_Import_Variables extends Rah_Flat_Import_Base
 
     public function importTemplate(Rah_Flat_TemplateIterator $file)
     {
-        $name = 'rah_flat_variable_' . $file->getTemplateName();
+        $base = $file->getTemplateName();
+        $name = 'rah_flat_variable_' . pathinfo($base, PATHINFO_FILENAME);
         $value = $file->getTemplateContents();
-        $type = 'text_input';
-
-        if (preg_match('/[\r\n]/', $value)) {
-            $type = 'pref_longtext_input';
-        }
+        $ext = pathinfo($base, PATHINFO_EXTENSION);
+        $type = $ext ?: 'text_input';
 
         set_pref($name, $value, 'rah_flat_variables', PREF_PLUGIN, $type);
     }
@@ -71,7 +69,7 @@ class Rah_Flat_Import_Variables extends Rah_Flat_Import_Base
         $sql = $names = array();
 
         foreach ($templates as $template) {
-            $names[] = 'rah_flat_variable_' . $template->getTemplateName();
+            $names[] = 'rah_flat_variable_' . pathinfo($template->getTemplateName(), PATHINFO_FILENAME);
         }
 
         $sql[] = "event = 'rah_flat_variables'";
