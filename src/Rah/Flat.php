@@ -54,11 +54,11 @@ class Rah_Flat
             register_callback(array($this, 'endpoint'), 'textpattern');
             register_callback(array($this, 'initWrite'), 'rah_flat.import');
 
-            if (get_pref('production_status') !== 'live' && $event !== 'plugin') {
+            if (in_list(get_pref('production_status'), get_pref('rah_flat_status')) && $event !== 'plugin') {
                 register_callback(array($this, 'callbackHandler'), 'textpattern');
                 register_callback(array($this, 'callbackHandler'), 'admin_side', 'body_end');
             }
-
+            
             register_callback(array($this, 'setVariables'), 'textpattern');
         }
     }
@@ -72,8 +72,9 @@ class Rah_Flat
         $position = 250;
 
         $options = array(
-            'rah_flat_path' => array('text_input', '../../src/templates'),
-            'rah_flat_key'  => array('text_input', md5(uniqid(mt_rand(), true))),
+            'rah_flat_path'   => array('text_input', '../../src/templates'),
+            'rah_flat_key'    => array('text_input', md5(uniqid(mt_rand(), true))),
+            'rah_flat_status' => array('rah_flat_status', 'debug, testing'),
         );
 
         foreach ($options as $name => $val) {
@@ -164,6 +165,19 @@ class Rah_Flat
             'success' => true,
         )));
     }
+}
+
+/**
+ * Set rah_flat_status pref
+ */
+function rah_flat_status($name, $val)
+{
+     $vals = array(
+        'debug'          => gTxt('production_debug'),
+        'testing'        => gTxt('production_test'),
+        'debug, testing' => gTxt('production_debug').', '.lcfirst(gTxt('production_test')),
+    );
+    return selectInput($name, $vals, $val, true, '', $name);
 }
 
 new Rah_Flat();
