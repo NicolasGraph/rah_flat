@@ -54,8 +54,15 @@ class Rah_Flat_Import_Variables extends Rah_Flat_Import_Base
         $base = $file->getTemplateName();
         $name = 'rah_flat_variable_' . pathinfo($base, PATHINFO_FILENAME);
         $value = $file->getTemplateContents();
-        $ext = pathinfo($base, PATHINFO_EXTENSION);
-        $type = $ext ?: 'text_input';
+        $type = pathinfo($base, PATHINFO_EXTENSION);
+        
+        if (!$type) {
+            if (preg_match('/[\r\n]/', $value)) {
+                $type = 'pref_longtext_input';
+            } else {
+                $type = 'text_input';
+            }
+        }
 
         set_pref($name, $value, 'rah_flat_variables', PREF_PLUGIN, $type);
     }
