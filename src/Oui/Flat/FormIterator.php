@@ -35,7 +35,9 @@ class Oui_Flat_FormIterator extends Oui_Flat_TemplateIterator
 
     public function getTemplateName()
     {
-        return pathinfo(pathinfo($this->getFilename(), PATHINFO_FILENAME), PATHINFO_EXTENSION);
+        $filename = pathinfo($this->getFilename(), PATHINFO_FILENAME);
+        
+        return pathinfo($filename, PATHINFO_EXTENSION) ?: $filename;
     }
 
     /**
