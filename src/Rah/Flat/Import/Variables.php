@@ -51,15 +51,17 @@ class Rah_Flat_Import_Variables extends Rah_Flat_Import_Base
 
     public function importTemplate(Rah_Flat_TemplateIterator $file)
     {
+        extract(lAtts(array(
+            'value'      => '',
+            'type'       => 'PREF_PLUGIN',
+            'html'       => 'text_input',
+            'position'   => '',
+            'is_private' => false,
+        ), $file->getTemplateJSONContents(), false));
+
         $name = 'rah_flat_variable_' . $file->getTemplateName();
-        $value = $file->getTemplateContents();
-        $type = 'text_input';
 
-        if (preg_match('/[\r\n]/', $value)) {
-            $type = 'pref_longtext_input';
-        }
-
-        set_pref($name, $value, 'rah_flat_variables', PREF_PLUGIN, $type);
+        set_pref($name, $value, 'rah_flat_variables', constant($type), $html, $position, $is_private);
     }
 
     /**
