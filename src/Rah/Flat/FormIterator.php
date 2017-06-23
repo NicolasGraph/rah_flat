@@ -35,7 +35,7 @@ class Rah_Flat_FormIterator extends Rah_Flat_TemplateIterator
 
     public function getTemplateName()
     {
-        return pathinfo(pathinfo($this->getFilename(), PATHINFO_FILENAME), PATHINFO_FILENAME);
+        return pathinfo(pathinfo($this->getFilename(), PATHINFO_FILENAME), PATHINFO_EXTENSION);
     }
 
     /**
@@ -44,7 +44,7 @@ class Rah_Flat_FormIterator extends Rah_Flat_TemplateIterator
      * If the file is named as:
      *
      * <code>
-     * filename.misc.ext
+     * misc.filename.ext
      * </code>
      *
      * The 'misc' would be used as the type. Alternatively, the type can be
@@ -66,7 +66,7 @@ class Rah_Flat_FormIterator extends Rah_Flat_TemplateIterator
     {
         $types = get_form_types();
         $types = array_keys($types);
-        $type = pathinfo(pathinfo($this->getFilename(), PATHINFO_FILENAME), PATHINFO_EXTENSION);
+        $type = pathinfo(pathinfo($this->getFilename(), PATHINFO_FILENAME), PATHINFO_FILENAME);
 
         if (in_array($type, $types)) {
             return $type;
