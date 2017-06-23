@@ -7,7 +7,9 @@
 <body>
     <p>This is a example page, and that there below is a form attached to this page.</p>
 
-    <txp:output_form form="example_form">
+    <txp:article_custom id="1" form="example_form_1" />
+
+    <txp:output_form form="example_form_2">
         Hello there.
     </txp:output_form>
 

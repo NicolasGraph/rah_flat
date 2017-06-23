@@ -1,8 +1,8 @@
 {
     "title": "Default",
     "description": "Website homepage.",
-    "page": "default",
-    "css": "default",
+    "page": "example_page",
+    "css": "example",
     "is_default": false,
     "in_rss": true,
     "on_frontpage": true,
