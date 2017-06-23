@@ -1,7 +1,7 @@
 #@admin
 #@language fr-fr
-rah_flat => Fichiers du modèle
-rah_flat_key => Clé sécurisée pour l'accès public
-rah_flat_path => Chemin vers le répertoire modèles
-rah_flat_status => Statut(s) de production pour le téléchargement systématique
-rah_flat_variables => Variables de modèle
+oui_flat => Fichiers du modèle
+oui_flat_key => Clé sécurisée pour l'accès public
+oui_flat_path => Chemin vers le répertoire modèles
+oui_flat_status => Statut(s) de production pour le téléchargement systématique
+oui_flat_variables => Variables de modèle

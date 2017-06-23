@@ -1,7 +1,7 @@
 #@admin
 #@language fi-fi
-rah_flat => Kiinteät sivupohjatiedostot
-rah_flat_key => Julkisen soittopyyntö-osoitteen käyttämä tietoturva-avain
-rah_flat_path => Tiedostopolku sivupohja-hakemistoon
-rah_flat_status => (Missing translation) Production status for the systematic upload
-rah_flat_variables => Mallimuuttujat
+oui_flat => Kiinteät sivupohjatiedostot
+oui_flat_key => Julkisen soittopyyntö-osoitteen käyttämä tietoturva-avain
+oui_flat_path => Tiedostopolku sivupohja-hakemistoon
+oui_flat_status => (Missing translation) Production status for the systematic upload
+oui_flat_variables => Mallimuuttujat

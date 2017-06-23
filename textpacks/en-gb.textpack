@@ -1,6 +1,6 @@
 #@admin
-rah_flat => Flat template files
-rah_flat_key => Security key for the public callback
-rah_flat_path => Path to the templates directory
-rah_flat_status => Production status for the systematic upload
-rah_flat_variables => Template variables
+oui_flat => Flat template files
+oui_flat_key => Security key for the public callback
+oui_flat_path => Path to the templates directory
+oui_flat_status => Production status for the systematic upload
+oui_flat_variables => Template variables
