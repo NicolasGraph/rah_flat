@@ -1,20 +1,20 @@
 {
-    "name": "rah/rah_flat",
-    "description": "Textpattern CMS templates as flat files",
+    "name": "oui/oui_flat",
+    "description": "Textpattern CMS templates as flat files (rah_flat fork)",
     "keywords": ["textpattern", "plugin", "flat", "template"],
-    "homepage": "https://github.com/gocom/rah_flat",
+    "homepage": "https://github.com/nicolasgraph/oui_flat",
     "license": "GPL-2.0",
     "type": "textpattern-plugin",
     "authors": [
         {
-            "name": "Jukka Svahn",
+            "name": "Nicolas Morand, Jukka Svahn",
             "homepage": "http://rahforum.biz",
             "role": "Developer"
         }
     ],
     "support": {
-        "issues": "https://github.com/gocom/rah_flat/issues",
-        "source": "https://github.com/gocom/rah_flat"
+        "issues": "https://github.com/nicolasgraph/oui_flat/issues",
+        "source": "https://github.com/nicolasgraph/oui_flat"
     },
     "require": {
         "php": ">=5.3.6",

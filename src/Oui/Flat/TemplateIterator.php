@@ -1,24 +1,24 @@
 <?php
 
 /*
- * rah_flat - Flat templates for Textpattern CMS
- * https://github.com/gocom/rah_flat
+ * oui_flat - Flat templates for Textpattern CMS
+ * https://github.com/nicolasgraph/oui_flat
  *
  * Copyright (C) 2017 Jukka Svahn
  *
- * This file is part of rah_flat.
+ * This file is part of oui_flat.
  *
- * rah_flat is free software; you can redistribute it and/or
+ * oui_flat is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation, version 2.
  *
- * rah_flat is distributed in the hope that it will be useful,
+ * oui_flat is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with rah_flat. If not, see <http://www.gnu.org/licenses/>.
+ * along with oui_flat. If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
@@ -28,8 +28,8 @@
  *
  * <code>
  * $templates = new RecursiveIteratorIterator(
- *     new Rah_Flat_FilterIterator(
- *         new Rah_Flat_TemplateIterator('/path/to/dir')
+ *     new Oui_Flat_FilterIterator(
+ *         new Oui_Flat_TemplateIterator('/path/to/dir')
  *     )
  * );
  * foreach ($templates as $template) {
@@ -41,7 +41,7 @@
  * @see \RecursiveDirectoryIterator
  */
 
-class Rah_Flat_TemplateIterator extends RecursiveDirectoryIterator
+class Oui_Flat_TemplateIterator extends RecursiveDirectoryIterator
 {
     /**
      * Template name pattern.
