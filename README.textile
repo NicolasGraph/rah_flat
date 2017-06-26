@@ -48,6 +48,125 @@ bc. http://example.com/?oui_flat_key={yourKey}
 
 Where @http://example.com/@ is your site's URL, and @{yourKey}@ is the security key you specified.
 
+h2. Templates folder example
+
+bc.. ┌ templates
+├── forms
+├── pages
+├── prefs
+├── sections
+├── styles
+├── textpacks
+└── variables
+
+p. For most existing template subfolders, the related admin tab will be disable.
+The _Admin > Preferences_ tab will still be accessible, however saved preferences will be overriden by existing flat files while the @/prefs@ folder exists
+The admin _Admin > languages_ tab will still be accessible and usable while the @/pages@ folder exists.
+
+Contained files can use whatever extension.
+
+h3. Forms
+
+Form types can be defined by filename prefixes or @/forms@ subfolder names.
+@misc@ type is used by default when no prefix is found in files stored directly in the @/form@ folder.
+
+bc.. ┌ templates
+├── forms
+├──── article.example_1.txp
+├──── example_2.txp
+├──── …
+├── …
+
+p. or
+
+bc.. ┌ templates
+├── forms
+├──── article
+├────── example_1.txp
+├────── …
+├──── misc
+├────── example_2.txp
+├────── …
+├──── …
+├── …
+
+h3. Pages
+
+bc.. ├── …
+├── pages
+├──── example.txp
+├──── …
+├── …
+
+h3. Prefs
+
+Prefs files can contain a JSON tree or just the preference value as text.
+
+bc.. ├── …
+├── prefs
+├──── sitename.json
+├──── site_slogan.txt
+├──── …
+├── …
+
+p. Available JSON field is:
+
+* @val@ (string): preference value;
+
+@sitename.txt@ would just contain the preference related value.
+
+h3. Sections
+
+Sections files are managed via JSON files.
+
+bc.. ├── …
+├── sections
+├──── example.json
+├──── …
+├── …
+
+p. Available JSON fields are:
+
+* @title@ (string): section title;
+* @description@ (string): section meta-description;
+* @page@ (string): page in use;
+* @css@ (string): styles in use;
+* @is_default@ (bool): @true@ makes it the default section;
+* @in_rss@ (bool): @true@ includes section articles in feeds;
+* @on_frontpage@ (bool): @true@ displays section articles on the frontpage; 
+* @searchable@ (bool): @true@ includes section articles in search results.
+
+h3. Styles
+
+bc.. ├── …
+├── styles
+├──── default.css
+├──── …
+├── …
+
+h3. textpacks
+
+bc.. ├── …
+├── textpacks
+├──── example.textpack
+├──── …
+├── …
+
+h3. Variables
+
+Variables can be defined via JSON files as plugin prefs and used through the @<txp:variable />@ tag.
+
+bc.. ├── …
+├── variables
+├──── example.json
+├──── …
+
+p. Available JSON fields are:
+
+* @value@ (string): variable value;
+* @html@ (string): name of the function to use in the admin (if the @/variables@ is removed). Natively available functions are: @text_input@, @pref_long_text@, @yesnoradio@.
+* @position@ (int): variable position.
+
 h2. Toolshed notice
 
 This is a toolshed project. Experimental fork from "rah_flat":https://github.com/gocom/oui_flat which is not part of the main supported product line of "Rah"https://github.com/gocom. Not yet at least. Please use at your own risk.
