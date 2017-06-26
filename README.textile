@@ -1,18 +1,18 @@
-h1. rah_flat
+h1. oui_flat
 
-"Download":https://github.com/gocom/rah_flat/releases | "Packagist":https://packagist.org/packages/rah/rah_flat | "Donate":http://rahforum.biz/donate/rah_flat
+"Download":https://github.com/nicolasgraph/oui_flat/releases | "Packagist":https://packagist.org/packages/oui/oui_flat | "Donate to the original author":http://ouiforum.biz/donate/oui_flat
 
 This plugin makes your "Textpattern CMS":http://www.textpattern.com database more flat, manageable and editable. Edit templates, forms, pages, preferences and sections as flat files. Use any editor, work in teams and store your website's source under your favorite "version control system":http://en.wikipedia.org/wiki/Revision_control.
 
-*Warning: this plugin will permanently remove your current templates when activated.*
+*Warning: this plugin will permanently remove some of your current templates when activated.*
 
 h2. Installing
 
 Using "Composer":http://getcomposer.org:
 
-bc. $ composer require rah/rah_flat:*
+bc. $ composer require oui/oui_flat:*
 
-Or "download":https://github.com/gocom/rah_flat/releases a plugin package.
+Or "download":https://github.com/nicolasgraph/oui_flat/releases a plugin package.
 
 h2. Requirements
 
@@ -21,16 +21,16 @@ h2. Requirements
 
 h2. Basics
 
-Rah_flat imports normal, flat files from a specified directory to your Textpattern database. This, in essence, lets you to edit your database contents from any regular editor and store the source as flat files.
+oui_flat imports normal, flat files from a specified directory to your Textpattern database. This, in essence, lets you to edit your database contents from any regular editor and store the source as flat files.
 
-Rah_flat comes with built-in support for a few essential content types: styles, forms, pages, preferences and sections. See the "templates":https://github.com/gocom/rah_flat/tree/master/templates directory on GitHub for an example how this all works.
+oui_flat comes with built-in support for a few essential content types: styles, forms, pages, preferences, sections and textpacks. It is also able to manage variables via plugin prefs. See the "templates":https://github.com/nicolasgraph/oui_flat/tree/master/templates directory on GitHub for an example how this all works.
 
 Your flat files are imported to the database:
 
 * Automatically on the background when the site is either in Debugging or Testing mode.
 * When the public callback hook URL is accessed. The URL can be used for deployment.
 
-If you want to exclude a certain content type from importing, just don't create a directory for it. No directory, and rah_flat will leave the database alone when it comes to that content type.
+If you want to exclude a certain content type from importing, just don't create a directory for it. No directory, and oui_flat will leave the database alone when it comes to that content type.
 
 h2. Preferences
 
@@ -44,40 +44,57 @@ h3. Security key for the public callback
 
 Security key for the public callback hook URL. Importing is done when the URL is accessed. The URL follows the format of:
 
-bc. http://example.com/?rah_flat_key={yourKey}
+bc. http://example.com/?oui_flat_key={yourKey}
 
 Where @http://example.com/@ is your site's URL, and @{yourKey}@ is the security key you specified.
 
 h2. Toolshed notice
 
-This is a toolshed project. Experimental and not part of the main supported product line of Rah. Not yet at least. Please use at your own risk.
+This is a toolshed project. Experimental fork from "rah_flat":https://github.com/gocom/oui_flat which is not part of the main supported product line of "Rah"https://github.com/gocom. Not yet at least. Please use at your own risk.
 
 h2. Changelog
 
-h3. Version 0.4.0 - upcoming
+h3. Version 0.7.0-beta (oui_flat from upcoming rah_flat-v0.4) - 2017/06/25
 
-* Added: Import template variables.
-* Added: Import translation strings.
-* Added: Reads template files recursively, allowing the use of organizational sub-directories.
-* Added: Use the parent directory as the form type, if it's not specified in the filename itself.
-* Added: Do not delete essential forms from the database.
+* Changed: requires Textpatern 4.6+
 * Added: Do not delete pages or styles that are used by a section.
-* Now requires Textpattern 4.6.0 or newer.
+* Changed: variables use @rah_flat_variables@ event only and are all visible or hidden as for other contents;
+* Changed: preferences stay always visible.
+* Improved: Uses original Textpacks format;
 
-h3. Version 0.3.0 - 2014/03/28
+h3. Version 0.6.0 (oui_flat) - 2017/03/14
+
+* Changed: Back to @oui_@ plugin author prefix.
+* Changed: Lighten compiled code by removing duplicated license infos.
+
+h3. Version 0.5.0 (oui_flat) - 2016/08/26
+
+* Changed: Forms are stored by types in subfolders and don't need prefixes anymore.
+* Added: Custom form types are changed to 'misc' when the plugin is disable to avoid an error in the Forms tab.
+* Changed: Preferences update affects values only.
+* Added: Prefs are hidden in the admin if set via flat files and get back to visible when the plugin is disabled.
+* Added: Custom prefs (in the variables folder) accept more paramters in .json files.
+* Changed: Custom prefs (in the variables folder) now have a oui_flat_var_ prefix added to their name.
+
+h3. Version 0.4.0 (oui_flat) - 2015/11/29
+
+* Added: Custom preferences can be created and use as Txp variables.
+* Changed: Forms naming convention is now @type.name.txp@.
+
+h3. Version 0.3.0 (rah_flat) - 2014/03/28
 
 * Added: Drop access to a admin-side panel only if the specific content-type is active and has a directory set up.
-* Added: Invokable @rah_flat.import@ callback event.
+* Added: Invokable @oui_flat.import@ callback event.
 * Added: Sections and preferences get their names from the filename.
 * Added: Preferences are always just updated, no strands are created.
 * Added: Preference fields that are not specified in a file are kept as-is in the database.
 * Added: French translation by "Patrick Lefevre":https://github.com/cara-tm.
-* Changed: Renamed confusing @Rah_Flat_Import_Template@ interface to @Rah_Flat_Import_ImportInterface@.
+* Changed: Renamed confusing @Oui_Flat_Import_Template@ interface to @Oui_Flat_Import_ImportInterface@.
 
-h3. Version 0.2.0 - 2014/03/19
+h3. Version 0.2.0 (rah_flat) - 2014/03/19
 
 * Reworked.
 
-h3. Version 0.1.0 - 2013/05/07
+h3. Version 0.1.0 (rah_flat) - 2013/05/07
 
 * Initial release.
