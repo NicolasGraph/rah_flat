@@ -27,7 +27,7 @@ oui_flat comes with built-in support for a few essential content types: styles, 
 
 Your flat files are imported to the database:
 
-* Automatically on the background when the site is either in Debugging or Testing mode.
+* Automatically on the background when the site is in the production status selected via the related plugin preference.
 * When the public callback hook URL is accessed. The URL can be used for deployment.
 
 If you want to exclude a certain content type from importing, just don't create a directory for it. No directory, and oui_flat will leave the database alone when it comes to that content type.
